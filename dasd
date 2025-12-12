@@ -1,0 +1,30 @@
+create table guest(
+    GuestID int (11) PRIMARY KEY,
+    First_name VARCHAR(50) NOT NULL,
+    Last_name VARCHAR(50) NOT NULL,
+    Middle_name VARCHAR(50) NOT NULL,
+    Suffix varchar(11) NOT NULL,
+    Contact int(11) not null,
+    Address varchar(100) not null,
+    Age int (11) not null,
+    Gender varchar (50) not null
+);
+
+create table room(
+RoomNo int (10) primary key,
+RoomType varchar (50) not null,
+Bed varchar(50) not null,
+Price decimal (10,2) not null
+);
+create table reservation(
+RoomNo int (10) primary key,
+GuestID int (11) not null,
+Name VARCHAR(100) NOT NULL,
+Contact int(11) not null,
+Check_In date not null,
+Check_Out date not null,
+Payment varchar(50),
+Price decimal (10, 2),
+FOREIGN KEY (RoomNo) REFERENCES room(RoomNo),
+FOREIGN KEY (GuestId) REFERENCES guest(GestId)
+);
